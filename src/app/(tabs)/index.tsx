@@ -6,9 +6,10 @@ import ParallaxScrollView from "@/components/parallax-scroll-view";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { Link } from "expo-router";
-import { Uniwind } from "uniwind";
+import { Uniwind, useUniwind } from "uniwind";
 
 export default function HomeScreen() {
+  const { theme } = useUniwind();
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
@@ -17,13 +18,13 @@ export default function HomeScreen() {
         <Text className="text-black/10 text-var-blue-100 shadow-blue-600/10 shadow-[10px]">ggg</Text>
       </View>
       <View className="box">
-        <Text>hhh</Text>
+        <Text className="text-black-to-white">{theme}</Text>
       </View>
       <Pressable
         onPress={() => {
           Uniwind.setTheme(Uniwind.currentTheme === "dark" ? "light" : "dark");
         }}>
-        <Text className="text-2">NNN</Text>
+        <Text className="text-2">Change</Text>
       </Pressable>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Welcome!</ThemedText>
